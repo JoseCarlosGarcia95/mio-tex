@@ -1,0 +1,65 @@
+
+
+\section{Introducción al sistema de líneas de espera}
+\subsection{Procesos de llegadas}
+En este contexto, definimos las llegadas como los clientes que llegan. Para este tipo de problemas solemos asumir que, en un instante dado, no puede haber más de una llegada. Cuando es posible que llegue más de un cliente en un mismo instante de tiempo, decimos que permitimos llegadas a granel (bulk arrivals).\\
+Normalmente, un proceso de llegadas no se ve afectado por el número de clientes que presenta el sistema.\\
+Hay dos situciaciones comunes en las cuales el proceso de llegada podría depender del número de clientes.
+\begin{itemize}
+	\item \textbf{Modelos de origen finito:} Ocurre cuando las llegadas están sacadas de una población pequeña.
+	\item \textbf{Razón:} Ocurre cuando la razón a la cual llegan los clientes a cierta instalación disminuye cuando ésta se llena. Si un cliente llega, pero se retira del sistema, se dice que el cliente ha renunciado.
+\end{itemize} 
+
+Si el número de clientes presente no afecta al proceso de llegadas, entonces se le describe mediante la especificación de la distribución de probabilidad que rige el tiempo entre llegadas sucesivas.
+
+\subsection{Procesos de salida}
+Para describir el proceso de salida (con frecuencia se le llama proceso de servicio) de un sistema de líneas de espera, se especifica una distribución de probabilidad, \textbf{distribución de tiempo de servicio}, que rige el tiempo de servicio a un cliente. En la mayoría de casos, esta distribución del tiempo de servicio es independiente de la cantidad de clientes presentes. (De aquí se infiere que el servidor, o canal, no trabaja más rápido cuando hay más clientes presentes).
+\\ Existen dos tipos de servidores:
+\begin{itemize}
+	\item \textbf{Servidores en paralelo:} Los servidores están en paralelo si todos ofrecen el mismo tipo de servicio y un cliente sólo requiere pasar por un servidor para completar el servicio.
+	\item\textbf{Servidores en serie:}Los servidores están en serie cuando un cliente debe pasar por varios servidores antes de terminar el servicio.
+\end{itemize}
+\subsection{Disciplina de las líneas de espera}
+Para describir por completo un sistema de líneas de espera , se debe describir también la disciplina de las líneas de espera y el modo en el cual los clientes forman las líneas de espera. Esta disciplina explica el método usado para determinar el orden en el que se atiende a los clientes.
+\\ Existen varios tipos de disciplina:
+\begin{itemize}
+	\item \textbf{Disciplina FCFS:}(al primero que llega se le atiende primero). Se atiende a los clientes según el orden en que llegan.
+	\item\textbf{Disciplina LCFS:}(El último en llegar es el primero en salir). Las llegadas más recientes son los primeros clientes en entrar al servicio.
+	\item\textbf{Disciplina SIRO:} (Servicio en orden aleatorio). El siguiente cliente en pasar al servidor es elegido en forma aleatoria de entre los clientes que están esperando atención.
+	\item\textbf{Disciplina de prioridad en las colas:} Una disciplina en prioridad clasifica cada llegada en una categoría. Cada categoría recibe luego un nivel de prioridad, y dentro de cada nivel de prioridad, los clientes entran en el servicio siguiendo FCFS.
+	
+\end{itemize}
+
+\subsection{Notación Kendall-Lee}
+La notación que se estudia en esta sección sirve para caracterizar un sistema de líneas de espera en el cual todas las llegadas esperan en una sola cola hasta que está libre uno de lo\textit{s} servidores paralelos idénticos. Luego el primer cliente en la cola  entra al servicio, y así sucesivamente (véase figura). Por ejemplo, si el cliente en el servidor 3 es el siguiente para completar servicio, entonces (si se supone una disciplina FCFS) el primer cliente en la cola entraría al servidor 3. El cliente siguiente en la cola entraría al servicio después de finalizar el servicio siguiente, etc.
+\\
+Kendall (1951) diseñó la notación siguiente para representar dicho sistema de líneas de espera. Cada sistema de líneas de espera se describe mediante seis características:
+1/2/3/4/5/6
+
+La primera característica especifica la naturaleza del proceso de llegada. Se utilizan las abreviaturas estándar siguientes:
+\begin{itemize}
+	\item M=Los tiempos entre llegadas son variables aleatorias independientes e idénticamente distribuidas (iid) cuya distribución es exponencial.
+	\item D = Los tiempos entre llegadas son iid y deterministas.
+	\item $E_k$ = Los tiempos entre llegadas son Erlangs iid con parámetro de forma k.
+	\item GI = Los tiempos entre llegadas son iid y están regidos por alguna distribución general.
+\end{itemize}
+La segunda característica especifica la naturaleza de los tiempos de servicio:
+\begin{itemize}
+	\item M = Los tiempos de servicio son iid y están distribuidos exponencialmente.
+	\item D = Los tiempos de servicio son iid y deterministas.
+	\item $E_k$ = Los tiempos de servicio son Erlangs iid con un parámetro de forma k.
+	\item G= Los tiempos de servicio son iid y están regidos por alguna distribución general.
+\end{itemize}
+La tercera característica es la cantidad de servidores en paralelo. 
+\\ La cuarta característica es la disciplina de líneas de espera:
+\begin{itemize}
+	\item FCFS = El primero en llegar, primero en ser atendido.
+	\item LCFS = El último en entrar, primero en salir.
+	\item SIRO = Servicio en orden aleatorio.
+	\item GD = Disciplina general de líneas de espera.
+\end{itemize}
+La quinta característica específica el número máximo admisible de clientes en el sistema (incluidos los clientes que están esperando y los que están en servicio). 
+\\ La sexta característica da el tamaño de la población de donde se extraen los clientes. A menos que la cantidad de clientes potenciales sea del mismo orden de magnitud que el número de servidores, la población se considera infinito. En muchos modelos importantes 4/5/6 es GD/$\infty$/$\infty$. Si así sucede, entonces 4/5/6 se omite, a menudo.
+\\
+Como ejemplo de esta notación, M/$E_2$/8/FCFS/10/$\infty$ podría representar una clínica con ocho médicos, tiempos entre llegadas exponenciales, tiempos de servicio de Erlangs de dos fases, una disciplina de líneas de espera FCFS y una capacidad total de 10 pacientes. \\
+Si no se especifica, tanto la capacidad del sistema como la población serán $\infty$ y la política de llegada será $FCFS$.

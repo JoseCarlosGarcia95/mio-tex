@@ -1,0 +1,150 @@
+\documentclass[spanish]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{lipsum}
+
+% ==================================================================================
+% Tipos
+% ==================================================================================
+\usepackage[light,condensed,math]{kurier}
+
+
+% ==================================================================================
+%  Símbolos matemáticos
+% ==================================================================================
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\def\N{\ensuremath{\mathbb{N}}}
+\def\Z{\ensuremath{\mathbb{Z}}}
+\def\Q{\ensuremath{\mathbb{Q}}}
+\def\R{\ensuremath{\mathbb{R}}}
+\def\C{\ensuremath{\mathbb{C}}}
+
+
+% ==================================================================================
+%  Colores
+% ==================================================================================
+
+\usepackage[pdftex]{xcolor}
+
+\definecolor{azulUCA}{cmyk}{1.00, 0.00, 0.00, 0.51}
+\definecolor{naranjaUCA}{cmyk}{0.00, 0.51, 1.00, 0.00}
+\definecolor{grisUCA}{cmyk}{0.00, 0.00, 0.00, 0.65}
+\definecolor{charcoal}{rgb}{0.21, 0.27, 0.31}
+\definecolor{darkjose}{HTML}{4a4a4a}
+% ==================================================================================
+%  Diseño del documento
+% ==================================================================================
+
+\usepackage[paperwidth=180mm, paperheight=250mm, top=30mm, bottom=40mm, inner=25mm, outer=20mm]{geometry}
+
+\parskip 5pt
+\parindent 0pt
+
+\usepackage[pagestyles]{titlesec}
+\titleformat{\chapter}[display]%
+{\huge\bfseries}%
+{\color{azulUCA}\usefont{T1}{put}{b}{n}\fontsize{70}{80}\selectfont\filleft\thechapter}%
+{-60pt}%
+{\color{grisUCA}}[\color{grisUCA}]
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+
+\clearscrheadfoot                 % deletes header/footer
+\pagestyle{scrheadings}           % use following definitions
+\cofoot[\pagemark]{\pagemark}     % odd   page, center position
+\rohead{\color{grisUCA}{Modelos de la investigación operativa}}
+% ==================================================================================
+%  Algunos diseños
+% ==================================================================================
+\usepackage{epigraph}
+
+\newcommand{\citainicial}[1]{
+	\raya
+	\begin{quotation}
+		\color{charcoal}{\textit{#1}}
+	\end{quotation}
+	\raya
+}
+
+\def\raya{
+	\par \hbox to
+	\linewidth{\hss \vrule width \textwidth height 0.2pt depth 0.5pt}
+	\par}
+
+\makeatletter
+
+\usepackage[theorems,breakable]{tcolorbox}
+
+\tcbuselibrary{theorems}
+
+
+% ==================================================================================
+%  Definiciones
+% ==================================================================================
+\title{\color{azulUCA}{Teoría de colas}\vspace{-6ex}}
+\date{}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\usepackage{titlesec}
+
+\titleformat*{\section}{\LARGE\color{azulUCA}}
+\titleformat*{\subsection}{\Large\color{charcoal}}
+
+\begin{document}
+
+% ==================================================================================
+% Página inicial
+% ==================================================================================
+\maketitle
+\citainicial{La teoria de colas es útil para administrar correctamente las multitudes, sistemas de entradas y salida, planificación de concesiones y evaluación de flujos de multitudes, venta de entradas, diseño de carreras y planificación, determinar las secuencias de un algoritmo, predecir el rendimiento de un ordenador, de telecomunicaciones, la administración de un hospital (Por ejemplo, el control de las camas de los hospitales), tráfico en los aeropuertos, la industria minera, la capacidad de planificar trenes y autobuses, el análisis del tiempo de la habitat y las estaciones, y más problemas logísticos que puden suponer un problema. \\ \\-  Prof. Dr. G. Keith Still}
+
+\begin{center}
+	\href{http://creativecommons.org/licenses/by-sa/3.0/es/}{\includegraphics[width=4em]{cc-by-sa}}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+ % ¿Qué es un proceso estocástico?
+\input{qsnpe}
+
+% Proceso de nacimiento muerte.
+\input{procesonm}
+
+% Introducción al sistema  de líneas de espera
+\input{intro}
+
+% Modelos de colas
+\input{modelocolas}
+
+% Modelos
+\input{mggdinfinf}
+
+% Anexo
+\input{anexo}
+
+% Autores
+\input{autores}
+
+% Licencia
+\input{licencia}
+\end{document}

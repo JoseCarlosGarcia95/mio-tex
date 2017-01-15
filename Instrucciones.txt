@@ -1,0 +1,6 @@
+- Descomprimimos el fichero .rar en alguna carpeta de nuestro ordenador.
+- Abrimos el fichero plantilla_mio.tex
+- A la izquierda, seleccionamos y editamos el fichero que queremos editar.
+-- Con esto conseguimos que exista una plantilla principal (plantilla_mio.tex)
+-- Podemos editar cada apartado de forma independiente y subirlo al Dropbox sin necesidad de editar el fichero principal.
+-- Mejor coordinación del trabajo.
