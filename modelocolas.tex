@@ -128,6 +128,11 @@ Con estos par\'ametros y sabiendo que $\pi_j=\pi_0 c_j$ tenemos que:
 	\hspace{0.5cm}	Como el tiempo que tarda cada servidor es una exponencial de ratio $\mu$, tenemos que al igual que en el modelo $M/M/1$, $W_s=\frac{1}{\mu}$.
 		\end{itemize}
 		
+		
+		\begin{figure}[h]
+			\centering\includegraphics[trim = 10mm 220mm 10mm 25mm, clip,width=0.9\linewidth]{MMc}
+		\end{figure}
+		
 	\section{M/M/s}
 		En este modelo, la capacidad del sistema es infinita y contamos con $s$ servidores. Vamos a suponer que solo se forma una cola, y que el primero de la cola pasa al primer servidor que se quede libre. Claramente, un sistema con esta forma de espera es mucho m\'as eficiente que uno en el que se forme una cola para cada servidor, pues podr\'ia pasar que un servidor se quedase libre y nadie entrase.\\
 		\hspace{0.5cm}En este modelo asumiremos que el tiempo entre llegadas es exponencial de ratio $\lambda$ y y el tiempo de servicio es exponencial de ratio $\mu$, para cada uno de los $s$ servidores.\\
@@ -155,6 +160,10 @@ Con estos par\'ametros y sabiendo que $\pi_j=\pi_0 c_j$ tenemos que:
 		$$L=L_q+L_s=L_q+\frac{\lambda}{\mu}$$
 		De nuevo, usando Little podemos calcular $W$
 		$$W=\frac{L}{\lambda}=\frac{L_q}{\lambda}+\frac{1}{\mu}$$
+		
+		\begin{figure}[h]
+			\centering\includegraphics[trim = 10mm 220mm 10mm 25mm, clip,width=0.9\linewidth]{MMs}
+		\end{figure}
 		
 		
 		
